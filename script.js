@@ -28,15 +28,16 @@ function getComputerChoice() {
 // Write the logic to get the human choice.
 // Your game will be played by a human player. You will write a function that takes the user choice and returns it.
 
-// Create a function that asks the user to input a number between 1, 2, and 3 when executed
-// If the user inputs 1, return "Rock"
-// Else if the user inputs 2, return "Paper"
-// Else if the user inputs 3, return "Scissors"
-// Return the user's input
+// Create a function that asks the user to input "rock", "paper", or "scissors" when executed
+// If the user inputs "rock", return "rock"
+// Else if the user inputs "paper", return "paper"
+// Else if the user inputs "scissors", return "scissors"
 
 function getHumanChoice() {
-  let humanChoice = prompt("Choose a number between 1, 2, and 3");
-  return parseInt(humanChoice);
+  let humanChoice = prompt("Choose rock, paper, or scissors!");
+  if (humanChoice === "rock" || humanChoice === "paper" || humanChoice === "scissors") {
+    return humanChoice;
+  }
 }
 
 
