@@ -23,3 +23,11 @@ function getHumanChoice() {
   let humanChoice = prompt("Choose a number between 1, 2, and 3");
   return parseInt(humanChoice);
 }
+
+
+
+// Declare the players score variables.
+// Your game will keep track of the players score. You will write variables to keep track of the players score.
+
+let computerScore = 0;
+let humanScore = 0;
