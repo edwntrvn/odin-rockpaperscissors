@@ -11,14 +11,17 @@ function getComputerChoice() {
   let computerChoice = Math.floor(Math.random() * 3 + 1);
 
   if (computerChoice === 1) {
+    console.log("The computer picked rock!");
     return "rock";
   }
 
   else if (computerChoice === 2) {
+    console.log("The computer picked paper!");
     return "paper";
   }
 
   else {
+    console.log("The computer picked scissors!");
     return "scissors";
   }
 }
@@ -34,8 +37,9 @@ function getComputerChoice() {
 // Else if the user inputs "scissors", return "scissors"
 
 function getHumanChoice() {
-  let humanChoice = prompt("Choose rock, paper, or scissors!");
+  let humanChoice = prompt("Choose rock, paper, or scissors!").toLowerCase();
   if (humanChoice === "rock" || humanChoice === "paper" || humanChoice === "scissors") {
+    console.log(`You picked ${humanChoice}!`)
     return humanChoice;
   }
 }
@@ -53,3 +57,78 @@ let humanScore = 0;
 // Write the logic to play a single round.
 // Your game will be played round by round. You will write a function that takes the human and computer player choices 
 // as arguments, plays a single round, increments the round winner’s score and logs a winner announcement.
+
+
+
+// Create a function that takes the user choice and the computer choice, and compares the two against each other
+
+// If both choices are the same, then it's a tie--tell the user to try again
+
+// If both choices are different, evaluate them against each other
+
+  // If the user picked ROCK and the computer picked SCISSORS
+  // Add 1 to the user's score and tell the user that they've won
+
+  // Else if the user picked ROCK and the computer picked PAPER
+  // Add 1 to the computer's score and tell the user that they've lost
+
+  // Else if the user picked PAPER and the computer picked ROCK
+  // Add 1 to the user's score and tell the user that they've won
+
+  // Else if the user picked PAPER and the computer picked SCISSORS
+  // Add 1 to the computer's score and tell the user that they've lost
+
+  // Else if the user picked SCISSORS and the computer picked PAPER
+  // Add 1 to the user's score and tell the user that they've won
+
+  // Else if the user picked SCISSORS and the computer picked ROCK
+  // Add 1 to the computer's score and tell the user that they've lost
+
+  const humanSelection = getHumanChoice();
+  const computerSelection = getComputerChoice();
+  
+  function playRound(humanMove, computerMove) {
+    if (humanMove === computerMove) {
+      console.log("It's a tie; try again!");
+    }
+
+    else {
+      if (humanMove === "rock" && computerMove === "scissors") {
+        humanScore += 1;
+        console.log("You've won this round!");
+        console.log(`The score is now\nPlayer: ${humanScore}\nComputer: ${computerScore}`);
+      }
+
+      else if (humanMove === "rock" && computerMove === "paper") {
+        computerScore += 1;
+        console.log("You've lost this round!");
+        console.log(`The score is now\nPlayer: ${humanScore}\nComputer: ${computerScore}`);
+      }
+
+      else if (humanMove === "paper" && computerMove === "rock") {
+        humanScore += 1;
+        console.log("You've won this round!");
+        console.log(`The score is now\nPlayer: ${humanScore}\nComputer: ${computerScore}`);
+      }
+
+      else if (humanMove === "paper" && computerMove === "scissors") {
+        computerScore += 1;
+        console.log("You've lost this round!");
+        console.log(`The score is now\nPlayer: ${humanScore}\nComputer: ${computerScore}`);
+      }
+
+      else if (humanMove === "scissors" && computerMove === "paper") {
+        humanScore += 1;
+        console.log("You've won this round!");
+        console.log(`The score is now\nPlayer: ${humanScore}\nComputer: ${computerScore}`);
+      }
+
+      else {
+        computerScore += 1;
+        console.log("You've lost this round!");
+        console.log(`The score is now\nPlayer: ${humanScore}\nComputer: ${computerScore}`);
+      }
+    }
+  }
+
+  playRound(humanSelection, computerSelection);
