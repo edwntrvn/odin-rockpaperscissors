@@ -1,9 +1,11 @@
 function getComputerChoice() {
-  if (Math.floor(Math.random() * 3) === 0) {
+  let randomNumber = Math.floor(Math.random() * 3);
+  
+  if (randomNumber === 0) {
     return "rock";
   }
 
-  else if (Math.floor(Math.random() * 3) === 1) {
+  else if (randomNumber === 1) {
     return "paper";
   }
 
@@ -13,78 +15,78 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-  return prompt("Choose rock, paper, or scissors!");
+  return prompt("Choose rock, paper, or scissors!").toLowerCase();
 }
 
 let computerScore = 0;
 let humanScore = 0;
 
-const computerSelection = getComputerChoice();
-const humanSelection = getHumanChoice()
-
 function playRound(computerChoice, humanChoice) {
-  // If the player and the computer make the same choice, it's a draw
-  if (computerChoice === humanChoice.toLowerCase()) {
-    console.log(`You chose ${humanSelection.toLowerCase()}.`);
-    console.log(`The computer chose ${computerSelection}.`);
+  // Computer and human both make the same choice
+  if (computerChoice === humanChoice) {
+    console.log(`The computer chose ${computerChoice}.`);
+    console.log(`You chose ${humanChoice}.`);
     console.log("It's a draw!");
   }
 
   else {
-    // Computer chooses ROCK and player chooses PAPER
-    if (computerChoice === "rock" && humanChoice.toLowerCase() === "paper") {
+    // Computer chooses ROCK and human chooses PAPER
+    if (computerChoice === "rock" && humanChoice === "paper") {
       humanScore += 1;
-      console.log(`You chose ${humanSelection.toLowerCase()}.`);
-      console.log(`The computer chose ${computerSelection}.`);
-      console.log("Paper beats rock——you win!");
-      console.log(`The score is Computer: ${computerScore} You: ${humanScore}`);
+      console.log(`The computer chose ${computerChoice}.`);
+      console.log(`You chose ${humanChoice}.`);
+      console.log("Paper beats rock--you win!");
+      console.log(`The score is now Computer: ${computerScore} You: ${humanScore}`);
     }
 
-    // Computer choose ROCK and player chooses SCISSORS
-    else if (computerChoice === "rock" && humanChoice.toLowerCase() === "scissors") {
+    // Computer chooses ROCK and human chooses SCISSORS
+    else if (computerChoice === "rock" && humanChoice === "scissors") {
       computerScore += 1;
-      console.log(`You chose ${humanSelection.toLowerCase()}.`);
-      console.log(`The computer chose ${computerSelection}.`);
-      console.log("Rock beats scissors——you lose!");
-      console.log(`The score is Computer: ${computerScore} You: ${humanScore}`);
+      console.log(`The computer chose ${computerChoice}.`);
+      console.log(`You chose ${humanChoice}.`);
+      console.log("Rock beats scissors--you lose!");
+      console.log(`The score is now Computer: ${computerScore} You: ${humanScore}`);
     }
 
-    // Computer chooses PAPER and player chooses ROCK
-    else if (computerChoice === "paper" && humanChoice.toLowerCase() === "rock") {
+    // Computer chooses PAPER and human chooses ROCK
+    else if (computerChoice === "paper" && humanChoice === "rock") {
       computerScore += 1;
-      console.log(`You chose ${humanSelection.toLowerCase()}.`);
-      console.log(`The computer chose ${computerSelection}.`);
-      console.log("Paper beats rock——you lose!");
-      console.log(`The score is Computer: ${computerScore} You: ${humanScore}`);
+      console.log(`The computer chose ${computerChoice}.`);
+      console.log(`You chose ${humanChoice}.`);
+      console.log("Paper beats rock--you lose!");
+      console.log(`The score is now Computer: ${computerScore} You: ${humanScore}`);
     }
 
-    // Computer chooses PAPER and player chooses SCISSORS
-    else if (computerChoice === "paper" && humanChoice.toLowerCase() === "scissors") {
+    // Computer chooses PAPER and human chooses SCISSORS
+    else if (computerChoice === "paper" && humanChoice === "scissors") {
       humanScore += 1;
-      console.log(`You chose ${humanSelection.toLowerCase()}.`);
-      console.log(`The computer chose ${computerSelection}.`);
-      console.log("Scissors beats paper——you win!");
-      console.log(`The score is Computer: ${computerScore} You: ${humanScore}`);
+      console.log(`The computer chose ${computerChoice}.`);
+      console.log(`You chose ${humanChoice}.`);
+      console.log("Scissors beats paper--you win!");
+      console.log(`The score is now Computer: ${computerScore} You: ${humanScore}`);
     }
 
-    // Computer chooses SCISSORS and player chooses ROCK
-    else if (computerChoice === "scissors" && humanChoice.toLowerCase() === "rock") {
+    // Computer chooses SCISSORS and human chooses ROCK
+    else if (computerChoice === "scissors" && humanChoice === "rock") {
       humanScore += 1;
-      console.log(`You chose ${humanSelection.toLowerCase()}.`);
-      console.log(`The computer chose ${computerSelection}.`);
-      console.log("Rock beats scissors——you win!");
-      console.log(`The score is Computer: ${computerScore} You: ${humanScore}`);
+      console.log(`The computer chose ${computerChoice}.`);
+      console.log(`You chose ${humanChoice}.`);
+      console.log("Rock beats scissors--you win!");
+      console.log(`The score is now Computer: ${computerScore} You: ${humanScore}`);
     }
 
-    // Computer choose SCISSORS and player chooses PAPER
+    // Computer chooses SCISSORS and human chooses PAPER
     else {
       computerScore += 1;
-      console.log(`You chose ${humanSelection.toLowerCase()}.`);
-      console.log(`The computer chose ${computerSelection}.`);
-      console.log("Scissors beats paper——you lose!");
-      console.log(`The score is Computer: ${computerScore} You: ${humanScore}`);
+      console.log(`The computer chose ${computerChoice}.`);
+      console.log(`You chose ${humanChoice}.`);
+      console.log("Scissors beats paper--you lose!");
+      console.log(`The score is now Computer: ${computerScore} You: ${humanScore}`);
     }
   }
 }
+
+const computerSelection = getComputerChoice();
+const humanSelection = getHumanChoice();
 
 playRound(computerSelection, humanSelection);
